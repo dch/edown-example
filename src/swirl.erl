@@ -1,0 +1,88 @@
+%% -*- tab-width: 4;erlang-indent-level: 4;indent-tabs-mode: nil -*-
+%% ex: ft=erlang ts=4 sw=4 et
+%% Licensed under the Apache License, Version 2.0 (the "License"); you may not
+%% use this file except in compliance with the License. You may obtain a copy of
+%% the License at
+%%
+%%  http://www.apache.org/licenses/LICENSE-2.0
+%%
+%% Unless required by applicable law or agreed to in writing, software
+%% distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+%% WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+%% License for the specific language governing permissions and limitations under
+%% the License.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %@author Dave Cottlehuber <dch@skunkwerks.at>
+%% %@copyright 2014-2038 Dave Cottlehuber
+%% %@end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% @doc
+%% A wonderful Template Title
+%%
+%% This description line behaves nicely when used with EDoc/EDown and Hugo.
+%% <div>
+%% ## Nota Bene
+%% You can of course embed [markdown] for hugo to deal with, via divs.
+%% [markdown]: http://daringfireball.net/projects/markdown/syntax
+%% </div>
+%% And code samples just as easily:
+%% <pre lang="erlang">
+%% incr(X) ->
+%%   %% This should be formatted with Erlang syntax highlighting
+%%   X + 1.
+%% </pre>
+%% @end
+
+-module(swirl).
+
+-ifdef(TEST).
+-include_lib("eunit/include/eunit.hrl").
+-endif.
+
+-behaviour(gen_server).
+
+%% api
+-export([beautiful/1]).
+
+-opaque lovely() :: {ok, binary()}.
+-export_type([lovely/0]).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% @doc
+%% A Beautiful Function.
+%%
+%% The same elements can be used for functions, too. So let's
+%% document a beautiful function, including:
+%% <ul>
+%% <li>Purpose</li>
+%% <li>Data Structures</li>
+%% <li>Parameters</li>
+%% <li>Return Codes</li>
+%% </ul>
+%% Here is a long-form comment about our beautiful function, with JSON.
+%% <pre lang="json">
+%% {
+%%     "couchdb": "Welcome",
+%%     "uuid": "43cc0662c3dd3dbf1b7262ccc4f60af3",
+%%     "version": "1.6.1"
+%% }
+%% </pre>
+%% @end
+
+-spec beautiful(binary()) -> term().
+beautiful(Binary) when is_binary(Binary) ->
+    %% @TODO better do this
+    {ok, Binary}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% test
+
+% -ifdef(TEST).
+% -spec _test() -> {ok, pid()}.
+% _test() ->
+%     start(),
+%     ?assertMatch({ok, _}, ).
+% -endif.
